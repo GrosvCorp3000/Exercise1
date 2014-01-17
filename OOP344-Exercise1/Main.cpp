@@ -5,16 +5,17 @@
 int main()
    {
    Manager man;
+   Manager* pman = &man;
 
    Employee dan(1, "Dan");
    Employee mike(2, "Mike");
    Employee alex(3, "Alex");
    Employee sarah(4, "Sarah");
 
-   dan.setBoss(man);
-   mike.setBoss(man);
-   alex.setBoss(man);
-   sarah.setBoss(man);
+   dan.setBoss(pman);
+   mike.setBoss(pman);
+   alex.setBoss(pman);
+   sarah.setBoss(pman);
 
    dan.work(2);
    mike.work(2);
@@ -58,6 +59,7 @@ int main()
    man.report();
    man.report();
 
-
+   getchar();	
    return 0;
    }
+

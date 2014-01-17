@@ -1,13 +1,13 @@
 #include "Employee.h"
-#include <string.h>
+#include <cstring>
 #include <iostream>
 #include "Manager.h"
 
-Employee::Employee(int id, char* name)
+Employee::Employee(int id, char* named)
    {
    ID = id;
-   Employee::name = new char[strlen(name)];
-   strcpy(Employee::name, name);
+   name = new char[strlen(named)+1];
+   strcpy(name, named);
    boss = 0;
    hours = 0;
    }
@@ -15,8 +15,9 @@ Employee::Employee(int id, char* name)
 
 Employee::~Employee()
    {
-   if(name)
+   if(name!=NULL)
       delete [] name;
+	  name = NULL;
    }
 
 void Employee::setBoss(Manager* newBoss)
@@ -47,3 +48,10 @@ int Employee::getID()
    {
    return ID;
    }
+
+char* Employee::getName() const
+{
+	return name;
+}
+
+

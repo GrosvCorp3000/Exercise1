@@ -9,12 +9,12 @@ class Employee
       int hours;
    protected:
    public:
-      Employee(int id, char* name);
+      Employee(int id, char* named);
       ~Employee();
       void setBoss(Manager* newBoss);
       void work(int numOfHours);
       void report();
       int getHours();
       int getID();
-      char* getName();
+      char* getName() const;
    };
